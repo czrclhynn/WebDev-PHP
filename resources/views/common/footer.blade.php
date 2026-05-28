@@ -1,0 +1,4 @@
+<footer class="bg-dark text-white text-center p-3 fixed-bottom">
+    @ 2026 Czercie Lhyanne Basco
+
+</footer>
