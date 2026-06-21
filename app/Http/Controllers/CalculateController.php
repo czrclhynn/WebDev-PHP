@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Utils;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Facades\Session;
 
 class CalculateController extends Controller
 {
     public function index($param1, $param2){
+         dd(Session::get('post'));
         Log::info('======================== Start Index Function ==========================');
         $sum = $this->addNumbers($param1, $param2);
         $difference = $this->difference($param1, $param2);

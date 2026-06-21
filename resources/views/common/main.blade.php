@@ -11,7 +11,7 @@
 <body>
     @include('common.header')
     
-    <div class="my-3">
+    <div class="my-0">
         @yield('content')
     </div>
     @include('common.footer')

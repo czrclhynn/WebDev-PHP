@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -61,6 +62,20 @@ class UserController extends Controller
     public function showForm()
     {
     return view('forms');
+    }
+    public function login($id){
+        $user = DB::table('user')
+        ->where('id', $id)
+        ->get();
+        Session::put('user', $user);
+    }
+    public function logout(Request $request){
+        $request->session()->forget('user');
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/home');
     }
 
 }
