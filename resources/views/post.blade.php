@@ -2,7 +2,7 @@
 @section('title', 'Post')
 @section('content')
 
-<div class="post-bg">
+ 
 <div>
 <div class="container w-75 py-3">
 <div class="row">
@@ -50,7 +50,8 @@
         <div class="container mb-1"></div>
             <div class = "row"></div>
             <form method = "GET" action="{{ route('post.search') }}" class="d-flex" role="search">
-            <input class="form-control me-2 shadow border border-secondary" type="search" placeholder="Search" aria-label="Search" value="{{ request('param') }}" name ="param"/>
+            <input class="form-control me-2 shadow border border-secondary" type="search" placeholder="Search" 
+                   aria-label="Search" value="{{ request('param') }}" name ="param"/>
             <button class="btn btn-outline-success border border-secondary thick-border"  type="submit">Search</button>
             </form>
         </div>
@@ -86,7 +87,8 @@
                                 <td>{{ $post->created_at }}</td>
                                 <td class="d-flex gap-2 text-center"> 
                                     @if($post->status != 'published')
-                                        <a href="{{ route('post.edit-form', $post->id) }}" class="bi bi-pencil-square text-light" style="color:blue"></a> 
+                                        <a href="{{ route('post.edit-form', $post->id) }}" class="bi bi-pencil-square text-light" 
+                                            style="color:blue"></a> 
                                         
                                         <form action="{{ route('post.delete', $post->id) }}" method="POST" class="d-inline">
                                             @csrf

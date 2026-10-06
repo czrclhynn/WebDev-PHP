@@ -55,7 +55,7 @@ Route::group(['prefix' => 'post'], function () {
    Route::get('/search', [PostController::class, 'searchPost'])->name('post.search');
 })->middleware('check.auth');
 
-// Student auth routes
+
 Route::group(['prefix' => 'student-auth'], function () {
 
     Route::get('/register', [StudentAuthController::class, 'showRegister'])->name('studentAuth.register');
@@ -71,7 +71,7 @@ Route::group(['prefix' => 'student-auth'], function () {
     });
 });
 
-// Student exam routes (login required)
+
 Route::group(['prefix' => 'student-exam', 'middleware' => 'check.student.auth'], function () {
 
     Route::get('/', [StudentExamController::class, 'examList'])->name('studentExam.list');
